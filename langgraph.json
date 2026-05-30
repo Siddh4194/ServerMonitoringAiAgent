@@ -1,0 +1,9 @@
+{
+  "dependencies": ["requirements.txt"],
+  "graphs": {
+    "server_monitor_agent": "./src/agent/agent.py:agent"
+  },
+  "env": ".env",
+  "python_version": "3.11",
+  "pip_config_file": null
+}
