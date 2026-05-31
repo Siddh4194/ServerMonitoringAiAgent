@@ -8,10 +8,9 @@ SMTP_HOST = "smtp.gmail.com"
 SMTP_PORT = 465
 
 
-def send_email(receiver_email: str, subject: str, body: str) -> None:
+def send_email(body: str) -> None:
     sender_email = os.getenv("EMAIL_USER")
     app_password = os.getenv("EMAIL_APP_PASSWORD")
-    print(f"Attempting to send email from {sender_email} to {receiver_email} with subject '{subject}'")
 
     if not sender_email or not app_password:
         raise ValueError(
@@ -20,8 +19,8 @@ def send_email(receiver_email: str, subject: str, body: str) -> None:
 
     message = EmailMessage()
     message["From"] = sender_email
-    message["To"] = receiver_email
-    message["Subject"] = subject
+    message["To"] = "siddhantkadam.dev@gmail.com"
+    message["Subject"] = "Server Agent Status Report"
     message.set_content(body)
 
     ssl_context = ssl.create_default_context()
